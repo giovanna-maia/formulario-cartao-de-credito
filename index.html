@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+  
+
+  <title>Formulário de Cartão de Crédito | FrontEnd Mentor</title>
+
+
+</head>
+<body>
+  <div class="background-image">
+    <img src="./images/bg-main-desktop.png">
+  </div>
+  
+  <div class="card1-image">
+    <img src="./images/bg-card-front.png">
+      <div class="card1-number">
+        <text id="numberTransform">0000 0000 0000 0000</text>
+      </div>
+    
+      <div class="card1-name">
+        <text id="nameTransform">José Maria da Silva</text>
+      </div>
+    
+      <div class="card1-expdate">
+      <text id="expDateTransform">00/00</text>
+      </div>
+  </div>
+
+  <div class="card2-image">
+    <img src="./images/bg-card-back.png">
+
+      <div class="card2-securitycode">
+        <text id="securityCodeTransform">000</text>
+      </div>
+  </div>
+
+  
+  <form action="" method="">
+    
+    <div>
+      <label for="name">Name</label>
+      <input 
+      type="text" 
+      id="name" 
+      placeholder="Ex: José Maria da Silva" />
+    </div>
+
+    <div>
+      <label for="cardNumber">Card Number</label>
+      <input 
+      type="text" 
+      id="cardNumber"
+      maxlength="16" 
+      size="16" 
+      placeholder="Ex: 1234 5678 9012 3456" />
+    </div>
+
+    <div>
+      <label for="expDate">Exp. Date</label>
+      <input
+      type="text" 
+      id="expDate" 
+      placeholder="MM/YY" />
+    </div>
+    
+    <div>
+      <label for="securityCode">Security Code</label>
+      <input 
+        type="text" 
+        id="securityCode" 
+        maxlength="3" 
+        size="3" 
+        placeholder="Ex. 123" />
+    </div>
+
+    <div class="button">
+      <button type="submit">Confirmar</button>
+    </div>
+  </form>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Giovanna Maia</a>.
+  </div>
+  
+  <script src="index.js"></script>
+
+</body>
+
+</html>
