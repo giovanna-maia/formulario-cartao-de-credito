@@ -1,37 +1,64 @@
-const name = document.getElementById('name');
-const cardNumber = document.getElementById('cardNumber');
-const expDate = document.getElementById('expDate');
-const securityCode = document.getElementById('securityCode');
+const inputs = document.querySelectorAll('input')
+const userName = document.querySelector('[data-userName]')
+const cardNumber = document.querySelector('[data-cardNumber]')
+const expDateMonth = document.querySelector('[data-expDateMonth]')
+const expDateYear = document.querySelector('[data-expDateYear]')
+const securityCode = document.querySelector('[data-securityCode]')
+const formError = document.querySelectorAll('.invalid')
 
 
-name.addEventListener('input', function () {
-    if (name.value.length == 0) {
-        document.getElementById('nameTransform').innerHTML = 'José Maria da Silva';
-    } else {
-        document.getElementById('nameTransform').innerHTML = this.value;
-    }
-});
+inputs.forEach(input => {
+    input.addEventListener('keyup',() => {
+        if(inputs[0].value !== ''){
+           userName.innerText = inputs[0].value
+           formError[0].innerText = ''
+        }if(inputs[0].value.length === 0){
+            userName.innerText = 'José Maria da Silva';
+        }
 
-cardNumber.addEventListener('input', function () {
-    if (cardNumber.value.length == 0) {
-        document.getElementById('numberTransform').innerHTML = '0000 0000 0000 0000';
-    } else {
-        document.getElementById('numberTransform').innerHTML = this.value;
-    }
-});
+        if(inputs[1].value !== ''){
+            cardNumber.innerHTML = inputs[1].value;
+            formError[1].innerHTML = ''
+        }if(inputs[1].value === ''){
+            cardNumber.innerHTML = '0000 0000 0000 0000';
+        }
 
-expDate.addEventListener('input', function () {
-    if (expDate.value.length == 0) {
-        document.getElementById('expDateTransform').innerHTML = '00/00';
-    } else {
-        document.getElementById('expDateTransform').innerHTML = this.value;
-    }
-});
 
-securityCode.addEventListener('input', function () {
-    if (securityCode.value.length == 0) {
-        document.getElementById('securityCodeTransform').innerHTML = '000';
-    } else {
-        document.getElementById('securityCodeTransform').innerHTML = this.value;
-    }
-});
+        if(inputs[2].value !== ''){
+            expDateMonth.innerHTML = inputs[2].value
+            formError[2].innerHTML = ''
+        }if(inputs[2].value === ''){
+            expDateMonth.innerHTML = '00'
+        }
+
+        if(inputs[3].value !== ''){
+            expDateYear.innerHTML = inputs[3].value
+          formError[2].innerHTML = ''
+        }if(inputs[3].value === ''){
+            expDateYear.innerHTML = '00'
+        }
+
+        if(inputs[4].value !== ''){
+            securityCode.innerHTML = inputs[4].value
+            formError[3].innerHTML = ''
+          }if(inputs[4].value === ''){
+            securityCode.innerHTML = '000'
+        }
+    })
+})
+
+
+// Formatando o input do cartão, para separar os números
+inputs[1].addEventListener('input', function (e) {
+    e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
+})
+
+// Limpando os inputs após o envio
+function clearInput(){
+   inputs[0].value = ''
+   inputs[1].value = ''
+   inputs[2].value = ''
+   inputs[3].value = ''
+}
+
+window.onload = clearInput;

@@ -24,15 +24,15 @@
   <div class="card1-image">
     <img src="./images/bg-card-front.png">
       <div class="card1-number">
-        <text id="numberTransform">0000 0000 0000 0000</text>
+        <text data-cardNumber>0000 0000 0000 0000</text>
       </div>
     
       <div class="card1-name">
-        <text id="nameTransform">José Maria da Silva</text>
+        <text data-userName>José Maria da Silva</text>
       </div>
     
       <div class="card1-expdate">
-      <text id="expDateTransform">00/00</text>
+      <text data-expDateMonth>00</text>/<text data-expDateYear>00</text>
       </div>
   </div>
 
@@ -40,7 +40,7 @@
     <img src="./images/bg-card-back.png">
 
       <div class="card2-securitycode">
-        <text id="securityCodeTransform">000</text>
+        <text data-securityCode>000</text>
       </div>
   </div>
 
@@ -51,7 +51,7 @@
       <label for="name">Name</label>
       <input 
       type="text" 
-      id="name" 
+      id="userName" 
       placeholder="Ex: José Maria da Silva" />
     </div>
 
@@ -60,8 +60,7 @@
       <input 
       type="text" 
       id="cardNumber"
-      maxlength="16" 
-      size="16" 
+      maxlength="19"
       placeholder="Ex: 1234 5678 9012 3456" />
     </div>
 
@@ -69,8 +68,12 @@
       <label for="expDate">Exp. Date</label>
       <input
       type="text" 
-      id="expDate" 
-      placeholder="MM/YY" />
+      id="expDateMonth" 
+      placeholder="MM" />
+      <input
+      type="text" 
+      id="expDateYear" 
+      placeholder="YY" />
     </div>
     
     <div>
