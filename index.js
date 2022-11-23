@@ -11,14 +11,14 @@ inputs.forEach(input => {
     input.addEventListener('keyup',() => {
         if(inputs[0].value !== ''){
            userName.innerText = inputs[0].value
-           formError[0].innerText = ''
+        //    formError[0].innerText = ''
         }if(inputs[0].value.length === 0){
             userName.innerText = 'José Maria da Silva';
         }
 
         if(inputs[1].value !== ''){
             cardNumber.innerHTML = inputs[1].value;
-            formError[1].innerHTML = ''
+            // formError[1].innerHTML = ''
         }if(inputs[1].value === ''){
             cardNumber.innerHTML = '0000 0000 0000 0000';
         }
@@ -26,21 +26,21 @@ inputs.forEach(input => {
 
         if(inputs[2].value !== ''){
             expDateMonth.innerHTML = inputs[2].value
-            formError[2].innerHTML = ''
+            // formError[2].innerHTML = ''
         }if(inputs[2].value === ''){
             expDateMonth.innerHTML = '00'
         }
 
         if(inputs[3].value !== ''){
             expDateYear.innerHTML = inputs[3].value
-          formError[2].innerHTML = ''
+        //   formError[2].innerHTML = ''
         }if(inputs[3].value === ''){
             expDateYear.innerHTML = '00'
         }
 
         if(inputs[4].value !== ''){
             securityCode.innerHTML = inputs[4].value
-            formError[3].innerHTML = ''
+            // formError[3].innerHTML = ''
           }if(inputs[4].value === ''){
             securityCode.innerHTML = '000'
         }
