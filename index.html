@@ -3,101 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Formulário Interativo de Cartão de Crédito | Desafio FrontEnd Mentor</title>
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-  
-
-  <title>Formulário de Cartão de Crédito | FrontEnd Mentor</title>
-
-
 </head>
+
 <body>
-  <div class="background-image">
-    <img src="./images/bg-main-desktop.png">
-  </div>
-  
-  <div class="card1-image">
-    <img src="./images/bg-card-front.png">
-      <div class="card1-number">
-        <text data-cardNumber>0000 0000 0000 0000</text>
+  <main>
+    <div class="bg-container">
+      <div class="content">
+        <div class="out-container">
+        <div class="card-container">
+          <div class="card card-front">
+            <div class="card-logo"></div>
+            <div id="card-number">0000 0000 0000 0000</div> 
+            <div class="card-name-date">
+              <div id="card-name">
+                Fulano da Silva
+              </div>
+              <div class="card-date">
+                <span id ="card-month">00</span>/<span id ="card-year">00</span>
+              </div>
+            </div>
+            
+            </div>
+          <div class="card card-bg">
+            <div id="card-cvc" class="cvc">000</div> 
+          </div>
+        </div>
+
+        <div class="form-container">
+           <form action="#" class="form-flex" id="cardform">
+            <div class="edit-name">
+              <label for="name">Titular do cartão</label> 
+              <input type="text" placeholder="Exemplo: Fulano da Silva" id="name">
+              <div id="err-text" class="error"></div>
+            </div>
+            
+            <div class="edit-number">
+              <label for="cardnumber">Número do cartão</label>
+              <input type="text" title="O número do cartão deve conter 16 caracteres" placeholder="Exemplo: 1234 5678 9012 3456" id="cardnumber" onkeypress="return cardformat(this, event)" maxlength="19">
+              <div id="err-number" class="error"></div>
+            </div>
+
+
+            <div class="date-cvc">
+              <div class="date-container">
+                <label for="exp-date">Data de validade</label>
+                <input type="text" placeholder="MM" id="exp-date"  maxlength="2" >
+                <input type="text" placeholder="YY" id="exp-year"  maxlength="2" >
+                <div id="err-date" class="error"></div>
+              </div>
+              <div class="cvc-conatiner">
+                <label for="cvc">Código de segurança</label>
+                <input type="text" placeholder="Exemplo: 123" id="cvc"  maxlength="3">
+                <div id="err-cvc" class="error"></div>
+              </div>
+            </div>
+            <input type="submit" value="Confirmar" id="confirm">
+
+           </form>
+           <form action="#" class="form-flex centered" id="thankform">
+             <div class="thankimg"></div>
+            
+            <h2> Obrigado! </h2>
+            
+            <div class="added"> Adicionamos o seu cartão de crédito</div>
+            <input type="button" value="Continue" id="continue" onclick= "location.reload();">
+            
+          </form>
+          
+        </div>
+        
+        <div class="attribution">
+          Desafio por <a href="https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw/" target="_blank">Frontend Mentor</a>. 
+          Desenvolvido por <a href="https://github.com/giovanna-maia" target="_blank">Giovanna Maia</a>. <br>
+          (Essa página foi feita para aprendizagem. O formulário não coleta nenhum dado.)
+
+        </div>
       </div>
+     
     
-      <div class="card1-name">
-        <text data-userName>José Maria da Silva</text>
-      </div>
     
-      <div class="card1-expdate">
-      <text data-expDateMonth>00</text>/<text data-expDateYear>00</text>
-      </div>
+    </div> 
   </div>
-
-  <div class="card2-image">
-    <img src="./images/bg-card-back.png">
-
-      <div class="card2-securitycode">
-        <text data-securityCode>000</text>
-      </div>
-  </div>
-
-  
-  <form action="" method="">
-    
-    <div>
-      <label for="name">Name</label>
-      <input 
-      type="text" 
-      id="userName" 
-      placeholder="Ex: José Maria da Silva" />
-    </div>
-
-    <div>
-      <label for="cardNumber">Card Number</label>
-      <input 
-      type="text" 
-      id="cardNumber"
-      maxlength="19"
-      placeholder="Ex: 1234 5678 9012 3456" />
-    </div>
-
-    <div>
-      <label for="expDate">Exp. Date</label>
-      <input
-      type="text" 
-      id="expDateMonth" 
-      placeholder="MM" />
-      <input
-      type="text" 
-      id="expDateYear" 
-      placeholder="YY" />
-    </div>
-    
-    <div>
-      <label for="securityCode">Security Code</label>
-      <input 
-        type="text" 
-        id="securityCode" 
-        maxlength="3" 
-        size="3" 
-        placeholder="Ex. 123" />
-    </div>
-
-    <div class="button">
-      <button type="submit">Confirmar</button>
-    </div>
-  </form>
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Giovanna Maia</a>.
-  </div>
-  
-  <script src="index.js"></script>
-
+  </main>
+   
+  <script src ="index.js" defer></script>
+  <script>
+     function cardFormat(item,e)
+     {
+      var st=item.value;
+      st =st.replace(/[" "]/gi,"");
+      st = st.replace(/(.{4})/g,'$1 ');
+      item.value = st;
+     }
+  </script>
 </body>
-
 </html>
